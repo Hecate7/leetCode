@@ -1,5 +1,8 @@
 package issue.demo._1;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  */
@@ -28,5 +31,39 @@ public class Solution {
 
         }
         return new int[]{-1,-1};
+    }
+
+    /**
+     * 哈希+两次遍历
+     * 将根据下标获取值转换为根据值获取数组下标
+     * @param nums
+     * @param target
+     * @return
+     */
+    public static int[] twoSum_1(int[] nums, int target) {
+        Map<Integer, Integer> hash = new HashMap();
+        for (int i = 0; i < nums.length; i++) {
+            hash.put(nums[i], i);
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            int sub = target - -nums[i];
+            if (hash.containsKey(sub) && hash.get(sub)!=i){
+                return new int[]{i, hash.get(sub)};
+            }
+        }
+        throw new IllegalArgumentException("no two sum solution!");
+    }
+
+    public static int[] twoSum_2(int [] nums, int target){
+        Map<Integer, Integer> hash = new HashMap<>();
+        for (int i = nums.length-1; i >=0; i--) {
+            int sub = target-nums[i];
+            if (hash.containsKey(sub)){
+                return new int[]{i, hash.get(sub)};
+            }
+            hash.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("no two sum solution!");
     }
 }

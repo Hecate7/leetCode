@@ -7,8 +7,8 @@ public class SolutionTest {
 
     @Test
     public void twoSum() {
-        int[] nums = {2, 7, 11, 15};
-        int result = 10;
-        Assert.assertArrayEquals(new int[]{-1,-1}, Solution.twoSum(nums, result));
+        int[] nums = {3,3};
+        int result = 6;
+        Assert.assertArrayEquals(new int[]{0,1}, Solution.twoSum_2(nums, result));
     }
 }
