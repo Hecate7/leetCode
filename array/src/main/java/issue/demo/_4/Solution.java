@@ -47,6 +47,7 @@ public class Solution {
         int s1=0, s2=0;
         while (k>1){
             int index = Math.min(k/2, nums1.length);
+            //节点哨兵值
             if (((s1+index-1)<nums1.length?nums1[s1+index-1]:Integer.MAX_VALUE)
                     >=((s2+index-1)<nums2.length?nums2[s2+index-1]:Integer.MAX_VALUE)){
                 s2 = s2+index;
